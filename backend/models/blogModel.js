@@ -17,11 +17,11 @@ const blogSchema = mongoose.Schema({
       type:String,
       required:true
    },
-   /* author: {
+   author: {
       type: mongoose.Schema.Types.ObjectId,
       required:true,
       ref:'User'
-   }, */
+   },
    tags: {
       type: String,
       required:true

@@ -8,13 +8,24 @@ import App from './App';
 import HomeScreen from './screens/HomeScreen';
 import BlogScreen from './screens/BlogScreen';
 import AddBlogScreen from './screens/AddBlogScreen';
+import EditBlogScreen from './screens/EditBlogScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+import PrivateRoutes from './components/PrivateRoutes';
+import MyPost from './screens/MyPost';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<App />}>
       <Route index={true} path='/' element={<HomeScreen />} />
-      <Route path='/create' element={<AddBlogScreen />} />
-      <Route path='/:id' element={<BlogScreen />} />
+      <Route path='/register' element={<RegisterScreen />} />
+      <Route path='/login' element={<LoginScreen />} />
+      <Route element={<PrivateRoutes />} >
+        <Route path='/create' element={<AddBlogScreen />} />
+        <Route path='/mypost' element={<MyPost />} />
+        <Route path='/:slug/edit' element={<EditBlogScreen />} />
+      </Route>
+      <Route path='/:slug' element={<BlogScreen />} />
     </Route>
   )
 )
