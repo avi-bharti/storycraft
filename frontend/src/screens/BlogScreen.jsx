@@ -7,7 +7,7 @@ const BlogScreen = () => {
    
    return (  
       <>
-         {isLoading ? <h2>Loading</h2> : error ? <h2>Error</h2> : <>
+         {isLoading ? <h2>Loading</h2> : error ? <h2>{error?.data?.message}</h2> : <>
             <h2>{post.title}</h2>
             <p className="post-details"><pre>{post.post}</pre></p>
          </>}

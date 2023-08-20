@@ -51,7 +51,7 @@ const EditBlogScreen = () => {
 
          {isUpdating && <h2>Updating</h2>}
          {isLoading && <h2>Processing</h2>}
-         {error && <h2>Error</h2>}
+         {error && <h2>{error?.data?.message}</h2>}
          <div className="form">
          <h1>Edit Blog</h1>
          <div className="form-group">

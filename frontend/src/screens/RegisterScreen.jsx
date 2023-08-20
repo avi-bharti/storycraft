@@ -30,7 +30,7 @@ const RegisterScreen = () => {
          dispatch(setCredentials({...res}))
          navigate('/')
       } catch (error) {
-         alert(error?.data?.msg)
+         alert(error?.data?.message)
       }
    }
    return (  

@@ -9,7 +9,7 @@ const registerUser = asyncHandler(async (req,res) => {
 
    const existsUser = await User.findOne({email});
    if(existsUser){
-      res.status(400).json({msg:"user exists"})
+      res.status(400).json({message:"user exists"})
    }else{
       const createdUser = await User.create({name,email,password});
       if(createdUser){
@@ -20,7 +20,7 @@ const registerUser = asyncHandler(async (req,res) => {
             email:createdUser.email,
          });
       }else{
-         res.status(400).json({msg:"Invalid data"})
+         res.status(400).json({message:"Invalid data"})
       }
    }
 })
@@ -30,7 +30,7 @@ const loginUser = asyncHandler(async (req,res) => {
 
    const existsUser = await User.findOne({email});
    if(!existsUser){
-      res.status(401).json({msg:"Invalid Data"})
+      res.status(401).json({message:"Invalid Data"})
    }else{
       if(await existsUser.matchPassword(password)){
          generateToken(res, existsUser._id)
@@ -40,7 +40,7 @@ const loginUser = asyncHandler(async (req,res) => {
             email:existsUser.email,
          });
       }else{
-         res.status(401).json({msg:"Invalid data"})
+         res.status(401).json({message:"Invalid data"})
       }
    }
 })
@@ -50,7 +50,7 @@ const logoutUser = asyncHandler(async (req,res) => {
       httpOnly:true,
       maxAge: new Date(0)
    })
-   res.status(200).json({"msg":"logged out successfully"})
+   res.status(200).json({message:"logged out successfully"})
 })
 
 export {

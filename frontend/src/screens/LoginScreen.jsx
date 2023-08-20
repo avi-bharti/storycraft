@@ -29,7 +29,7 @@ const LoginScreen = () => {
          dispatch(setCredentials({...res}))
          navigate('/')
       } catch (error) {
-         alert(error.error)
+         alert(error?.data?.message)
       }
    }
    return (  

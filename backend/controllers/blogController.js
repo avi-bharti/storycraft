@@ -20,9 +20,9 @@ const saveBlog = asyncHandler(async (req,res) => {
    const author = req.user._id;
    const blog = await Blog.create({title,slug,description,post,tags,author});
    if(blog){
-      res.status(201).json({msg:"blog Savved"})
+      res.status(201).json({message:"blog Savved"})
    }else{
-      res.status(400).json({msg:"invalid data"})
+      res.status(400).json({message:"invalid data"})
 
    }
 })
@@ -42,7 +42,7 @@ const updateBlog = asyncHandler(async (req,res) => {
       const updatedBlog = await blog.save();
       res.status(200).json(updatedBlog)
    }else{
-      res.status(400).json({msg:"invalid data"})
+      res.status(400).json({message:"invalid data"})
 
    }
 })
@@ -51,7 +51,7 @@ const deletePost = asyncHandler (async (req,res) => {
    const id = req.params.id;
 
    await Blog.findByIdAndDelete(id);
-   res.status(200).json({msg:'deleted successfully'});
+   res.status(200).json({message:'deleted successfully'});
 })
 
 const getUserId = async(req,res) => {
